@@ -15,27 +15,29 @@ import java.util.Stack;
 public class graph implements GNode{
     
     //Name of node
-    String nodeName;
+    private String nodeName;
+    
     //set constructor
-    graph(String a) {
+    public graph(String a) {
       this.nodeName = a;
-
+      System.out.println(a);
     }
+    
      //Returns name of node
     @Override
     public String getName() {
         return this.nodeName;
     }
     
-    
     //Array to store children of node
-    GNode[] children;
+    private GNode[] children;
     //Sets array for children 
     public void setChildren(GNode[] setChildren){
         int length = setChildren.length;
         this.children = new GNode[length];
         int childValue = 0;
         for(GNode x: setChildren){
+            System.out.println("Setchild:"+x);
             this.children[childValue] = x;
             childValue++;
         }
@@ -52,7 +54,7 @@ public class graph implements GNode{
     
     // ArrayList stores nodes in graph
     // NOG is acronym for nodes on graph
-    private final ArrayList<GNode> NoG = new ArrayList<>();
+    private ArrayList<GNode> NoG = new ArrayList<>();
     
     //Create method to check for recurring nodes by name?
 //    public boolean nodeCheck(GNode node){
@@ -72,6 +74,7 @@ public class graph implements GNode{
         NoG.add(node);
         for(GNode c : node.getChildren()){
             walkGraph( c );
+           // System.out.println(c);
         }
         
         return NoG;
@@ -91,18 +94,23 @@ public class graph implements GNode{
             
             GNode[] currentChildren = current.getChildren();
             
-            for(GNode c : currentChildren){
-                paths(c);
-            }
-            stack.pop();
-            prevNodeList.remove(prevNodeList.size() - 1 );
-            
             if (currentChildren.length == 0){
                 pathNodeList.add(new ArrayList<GNode>(prevNodeList));
             }
+            
+            for(GNode c : currentChildren){
+                paths(c);
+            
+            stack.pop();
+            prevNodeList.remove(prevNodeList.size() - 1 );
+            
+        }
             break;
         }
         return pathNodeList;
     }
-
+    @Override
+    public String toString(){
+        return this.getName();
+    }
 }

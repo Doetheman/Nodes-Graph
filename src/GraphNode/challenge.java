@@ -22,16 +22,31 @@ public class challenge {
          graph H = new graph ("H");
          graph I = new graph ("I");
          graph J = new graph ("J");
-         GNode[] A_children;
-       A_children = new GNode[] { B, C, D};
-         A.setChildren(A_children);
-         GNode[] B_children;
-       B_children = new GNode[] { E, F, G};
+         
+//         GNode[] Achildren = new GNode[] { B, C, D};
+//         A.setChildren(Achildren);
+//         
+//         GNode[] B_children = new GNode[] { E, F, G};
+//         B.setChildren(B_children);
+//         
+//         GNode[] C_children = new GNode[] { H, I, J};
+         
+            
+         GNode[] Achildren = new GNode[] { B, C, D};
+         A.setChildren(Achildren);
+         
+         GNode[] B_children = new GNode[] { E, F};
          B.setChildren(B_children);
-         GNode[] C_children;
-       C_children = new GNode[] { H, I, J};
+         
+         GNode[] C_children = new GNode[] { G, H, I};
+         
          C.setChildren(C_children);
          
+         GNode[] Dchildren = new GNode [] {J};
+         D.setChildren(Dchildren);
+         
          System.out.println(A.walkGraph(A));
+         
+         System.out.println(A.paths(A));
     }
 }
