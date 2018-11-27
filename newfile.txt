@@ -1,0 +1,12 @@
+
+Setchild : B
+Setchild : C
+Setchild : D
+Setchild : E
+Setchild : F
+Setchild :  G
+Setchild : H
+Setchild : I
+Setchild : J
+[ A, B, E, F, C, G, H, I, D, J]
+[ [ A , B , E ] , [ A , B , F ] ,  [ A , C , G ],  [ A , C , H ] , [ A, C, I ], [ A, D, J ] ]
